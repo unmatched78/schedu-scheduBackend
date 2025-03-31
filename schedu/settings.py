@@ -61,9 +61,9 @@ CHANNEL_LAYERS = {
 import cloudinary
 
 cloudinary.config(
-    cloud_name = 'dmk7zhp0e',        # Replace with your cloud name
-    api_key = '512531327193234',              # Replace with your API key
-    api_secret = '1tz0FZfxSO3L2B0lg1M_AlLJYKc'         # Replace with your API secret
+    cloud_name = '',        # Replace with your cloud name
+    api_key = '',              # Replace with your API key
+    api_secret = ''         # Replace with your API secret
 )
 # settings.py  
 CORS_ALLOW_ALL_ORIGINS = True
