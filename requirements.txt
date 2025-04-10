@@ -16,3 +16,6 @@ virtualenv==20.26.3
 requests
 django-role-permissions
 daphne 
+django-q
+channels
+watchfiles

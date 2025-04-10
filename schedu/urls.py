@@ -20,9 +20,22 @@ from django.contrib import admin
 from django.urls import path, include
 # from django.conf import settings
 # from django.conf.urls.static import static
+# project/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('api/',include('core.urls')),
+    path('admin/', admin.site.urls),
+    path('api/core/', include('core.urls')),
+    path('api/scheduling/', include('scheduling.urls')),
+    path('api/hr/', include('hr.urls')),
+    path('api/ticketing/', include('ticketing.urls')),
+    path('api/payroll-benefits/', include('payroll_benefits.urls')),
+    path('api/compliance-legal/', include('compliance_legal.urls')),
+    path('api/regulatory-updates/', include('regulatory_updates.urls')),
+    path('api/spending-management/', include('spending_management.urls')),
+    path('ledger/', include('django_ledger.urls', namespace='django_ledger')),
+    path('api/accounting/', include('accounting.urls')),
 ]
 
 # serve static files and media

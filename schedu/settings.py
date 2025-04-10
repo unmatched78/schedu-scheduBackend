@@ -44,7 +44,17 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rolepermissions",
     "core",
-    "cloudinary",
+    "scheduling",
+    "hr",
+    "ticketing",
+    #"cloudinary",
+    "payroll_benefits",
+    'django_ledger',
+    'accounting',
+    "spending_management",
+    "compliance_legal",
+    "regulatory_updates",
+    "rest_framework_simplejwt.token_blacklist",
     'channels',
     "rest_framework",
     "rest_framework.authtoken",
@@ -58,13 +68,23 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels.layers.InMemoryChannelLayer',
     },
 }
-import cloudinary
 
-cloudinary.config(
-    cloud_name = 'dmk7zhp0e',        # Replace with your cloud name
-    api_key = '512531327193234',              # Replace with your API key
-    api_secret = '1tz0FZfxSO3L2B0lg1M_AlLJYKc'         # Replace with your API secret
-)
+# Q_CLUSTER = {
+#     'name': 'DjangoORM',
+#     'workers': 4,
+#     'timeout': 90,
+#     'retry': 120,
+#     'queue_limit': 50,
+#     'bulk': 10,
+#     'orm': 'default',
+# }
+# import cloudinary
+
+# cloudinary.config(
+#     cloud_name = 'dmk7zhp0e',        # Replace with your cloud name
+#     api_key = '512531327193234',              # Replace with your API key
+#     api_secret = '1tz0FZfxSO3L2B0lg1M_AlLJYKc'         # Replace with your API secret
+# )
 # settings.py  
 CORS_ALLOW_ALL_ORIGINS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
@@ -81,6 +101,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+     'DEFAULT_PERMISSION_CLASSES': [],  # Test with this
 }
 # settings.py
 
@@ -130,7 +151,24 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+# schedu/settings.py
+# ... (other existing settings)
 
+# # Celery Configuration
+# CELERY_BROKER_URL = 'sqla+sqlite:///celerydb.sqlite'  # SQLite as broker
+# CELERY_RESULT_BACKEND = 'db+sqlite:///celerydb.sqlite'  # SQLite as result backend
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+
+# # Celery Beat Schedule (for periodic tasks)
+# from celery.schedules import crontab
+# CELERY_BEAT_SCHEDULE = {
+#     'generate-automated-reports': {
+#         'task': 'accounting.tasks.generate_automated_reports',
+#         'schedule': crontab(minute=0, hour=0),  # Run daily at midnight
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -161,7 +199,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
