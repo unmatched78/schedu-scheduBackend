@@ -69,6 +69,7 @@ CHANNEL_LAYERS = {
     },
 }
 
+<<<<<<< HEAD
 # Q_CLUSTER = {
 #     'name': 'DjangoORM',
 #     'workers': 4,
@@ -85,6 +86,13 @@ CHANNEL_LAYERS = {
 #     api_key = '512531327193234',              # Replace with your API key
 #     api_secret = '1tz0FZfxSO3L2B0lg1M_AlLJYKc'         # Replace with your API secret
 # )
+=======
+cloudinary.config(
+    cloud_name = '',        # Replace with your cloud name
+    api_key = '',              # Replace with your API key
+    api_secret = ''         # Replace with your API secret
+)
+>>>>>>> 53f4b1d8159a5f579b919133d1828b21ce3b73a7
 # settings.py  
 CORS_ALLOW_ALL_ORIGINS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
